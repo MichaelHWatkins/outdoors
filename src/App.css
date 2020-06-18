@@ -44,3 +44,12 @@ li {
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+.App {
+  color: white;
+  text-align: center;
+}
+
+button {
+  color: white;
+}
