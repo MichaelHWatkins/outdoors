@@ -7,29 +7,37 @@ function App() {
 	'Very interesting and profound headline']
 
   const [seconds, setSeconds] = useState(0);
-  const [phrase, setPhrase] = useState("Test")
-
+  const [phrase, setPhrase] = useState(textArray[seconds % textArray.length])
+  const [loop, setLoop] = useState(true)
 
   useEffect(() => {
     const interval = setInterval(() => {
       setSeconds(seconds => seconds + 1);
-      setPhrase(textArray[seconds % textArray.length]);
     }, 3000);
   }, []);
+
+  useEffect(() => {
+    if (loop === true) {
+      setPhrase(textArray[seconds % textArray.length])
+    }
+  })
 
   const backpackingPhrase = event => {
     event.preventDefault();
     setPhrase("The right place for Backpacking lovers")
+    setLoop(false)
   }
 
   const campingPhrase = event => {
     event.preventDefault();
     setPhrase("The right place for Camping lovers")
+    setLoop(false)
   }
 
   const hikingPhrase = event => {
     event.preventDefault();
-    setPhrase("The right place for Camping lovers")
+    setPhrase("The right place for Hiking lovers")
+    setLoop(false)
   }
 
   return (
